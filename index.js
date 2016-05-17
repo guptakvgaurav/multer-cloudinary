@@ -3,7 +3,7 @@
  */
 
 /**
- * A simple multer storage engine which stores the file directly to cloudinary.
+ * A simple storage engine
  * */
 function CloudinaryStorage (opts) {
   if(opts && opts.cloudinary && opts.cloudinary.cloudinary){
@@ -13,20 +13,15 @@ function CloudinaryStorage (opts) {
   }
   switch (typeof opts.s3StreamParams) {
     case 'function': this.getParams = opts.s3StreamParams; break;
-    case 'undefined': this.getParams = undefined;break;
+    case 'undefined': this.getParams = function () {return;};break;
     default: throw new TypeError('Expected opts.key to be undefined or function')
   }
 }
 
 CloudinaryStorage.prototype._handleFile = function _handleFile (req, file, cb) {
   var self = this;
-  this.getDestination(req, file, function (err, path) {
-    if (err) { return cb(err); }
-
-    var cloudinaryStream = self.cloudinary.uploader.upload_stream(function(result) { cb(null, result)}, self.getParams());
-    file.stream.pipe(cloudinaryStream);
-
-  });
+  var cloudinaryStream = self.cloudinary.uploader.upload_stream(function(result) { cb(null, result)}, self.getParams());
+  file.stream.pipe(cloudinaryStream);
 };
 
 module.exports = function (opts) {
