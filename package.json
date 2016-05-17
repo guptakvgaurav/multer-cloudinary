@@ -1,0 +1,25 @@
+{
+  "name": "multer-cloudinary",
+  "version": "1.0.0",
+  "description": "A simple multer storage engine which directly uploads image to cloudinary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guptakvgaurav/multer-cloudinary.git"
+  },
+  "keywords": [
+    "cloudinary",
+    "multer",
+    "storage",
+    "storage-engine"
+  ],
+  "author": "Gaurav Gupta <guptakvgaurav@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guptakvgaurav/multer-cloudinary/issues"
+  },
+  "homepage": "https://github.com/guptakvgaurav/multer-cloudinary#readme"
+}
