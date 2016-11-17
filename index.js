@@ -6,8 +6,8 @@
  * A simple storage engine
  * */
 function CloudinaryStorage (opts) {
-  if(opts && opts.cloudinary && opts.cloudinary.cloudinary){
-    this.cloudinary = opts.cloudinary.cloudinary;
+  if(opts && opts.cloudinary){
+    this.cloudinary = opts.cloudinary;
   }else{
     throw new Error('Expected opts.cloudinary to be a configured cloudinary object.');
   }
