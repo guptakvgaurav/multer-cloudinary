@@ -6,8 +6,10 @@
  * A simple storage engine
  * */
 function CloudinaryStorage (opts) {
-  if(opts && opts.cloudinary && opts.cloudinary.cloudinary){
-    this.cloudinary = opts.cloudinary.cloudinary;
+  if(opts && opts.cloudinary){
+    // Checking to see if opts.cloudinary.cloudinary is present for backwards compatibility
+    // even though opts.cloudinary is the correct way to pass.
+    this.cloudinary = opts.cloudinary.cloudinary ? opts.cloudinary.cloudinary : opts.cloudinary;
   }else{
     throw new Error('Expected opts.cloudinary to be a configured cloudinary object.');
   }
